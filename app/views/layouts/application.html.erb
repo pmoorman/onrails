@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Omrails</title>
+  <title>Qurriculum</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<%= render 'layouts/header' %>
+	<div class="row">
+		<div class="span8 offset2">
+			<%= yield %>
 
-<%= yield %>
-
+			<%= render 'layouts/footer' %>
+		</div>
+	</div>
 </body>
 </html>
