@@ -1,0 +1,23 @@
+<h1>Listing qurriculums</h1>
+
+<table>
+  <tr>
+    <th>Vacancy</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @qurriculums.each do |qurriculum| %>
+  <tr>
+    <td><%= qurriculum.vacancy %></td>
+    <td><%= link_to 'Show', qurriculum %></td>
+    <td><%= link_to 'Edit', edit_qurriculum_path(qurriculum) %></td>
+    <td><%= link_to 'Destroy', qurriculum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Qurriculum', new_qurriculum_path %>

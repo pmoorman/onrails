@@ -1,5 +1,11 @@
 Omrails::Application.routes.draw do
-  devise_for :users
+  resources :qurriculums
+
+
+  devise_for :users do
+    # Creates qurriculums as nested resources within users
+    resources :qurriculums
+  end
 
   get 'about' => 'pages#about'
 
