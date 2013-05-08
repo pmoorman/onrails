@@ -1,9 +1,8 @@
-<% if user_signed_in? # Show Dashboard %>
-	<h1>Dashboard</h1>
-	<p>This dashboard is still under construction!</p>
-	<%= link_to "Your Qurriculums", qurriculums_path, class: "btn btn-large" %>
+<% if user_signed_in? %>
+	<h1>Welcome to your Dashboard</h1>
+	<%= link_to "Your Qurriculums", qurriculums_path, class: "btn" %>
 
-<% else # Show landingpage %>
+<% else %>
 	<h1>Welcome to Qurriculum!</h1>
 	<p>This here will be the landingpage. </br>We will host all sorts of nice HTML here, and a nice Call to Action.</p>
 	<div class="btn-group">

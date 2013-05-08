@@ -1,8 +1,14 @@
 class QurriculumsController < ApplicationController
   # GET /qurriculums
   # GET /qurriculums.json
+
+  # Authenticate user before they can take actions on qurriculums
+  before_filter :authenticate_user!, except: [:index, :show]
+
+
   def index
-    @qurriculums = Qurriculum.all
+    # Only show user's own qurriculums in the index
+    @qurriculums = current_user.qurriculums.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,7 +30,7 @@ class QurriculumsController < ApplicationController
   # GET /qurriculums/new
   # GET /qurriculums/new.json
   def new
-    @qurriculum = Qurriculum.new
+    @qurriculum = current_user.qurriculums.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +40,13 @@ class QurriculumsController < ApplicationController
 
   # GET /qurriculums/1/edit
   def edit
-    @qurriculum = Qurriculum.find(params[:id])
+    @qurriculum = current_user.qurriculums.find(params[:id])
   end
 
   # POST /qurriculums
   # POST /qurriculums.json
   def create
-    @qurriculum = Qurriculum.new(params[:qurriculum])
+    @qurriculum = current_user.qurriculums.new(params[:qurriculum])
 
     respond_to do |format|
       if @qurriculum.save
@@ -56,7 +62,7 @@ class QurriculumsController < ApplicationController
   # PUT /qurriculums/1
   # PUT /qurriculums/1.json
   def update
-    @qurriculum = Qurriculum.find(params[:id])
+    @qurriculum = current_user.qurriculums.find(params[:id])
 
     respond_to do |format|
       if @qurriculum.update_attributes(params[:qurriculum])
@@ -72,7 +78,7 @@ class QurriculumsController < ApplicationController
   # DELETE /qurriculums/1
   # DELETE /qurriculums/1.json
   def destroy
-    @qurriculum = Qurriculum.find(params[:id])
+    @qurriculum = current_user.qurriculums.find(params[:id])
     @qurriculum.destroy
 
     respond_to do |format|
