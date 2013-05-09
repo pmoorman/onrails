@@ -5,6 +5,9 @@ class QurriculumsController < ApplicationController
   # Authenticate user before they can take actions on qurriculums
   before_filter :authenticate_user!, except: [:index, :show]
 
+  # override layout for the Qurriculum viewers
+  layout "viewer", :only => :show
+
 
   def index
     # Only show user's own qurriculums in the index

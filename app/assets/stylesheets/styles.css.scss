@@ -8,5 +8,10 @@ body {
 	margin-top: 50px;
 }
 
-/* Put this at the end, so it renders after page is ready.*/
+#toparea {
+	margin-left: 25px;
+
+}
+
+/* Put this at the end, so it renders after page is ready. */
 @import 'bootstrap-responsive';
